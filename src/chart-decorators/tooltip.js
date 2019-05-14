@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Circle, G, Line, Rect, Text } from 'react-native-svg'
+import { Svg } from 'expo'
 
 const Tooltip = ({ x, y, value, index, height, text, stroke, pointStroke }) => {
     return (
-        <G>
-            <Line
+        <Svg.G>
+            <Svg.Line
                 x1={ x(index) }
                 y1={ height }
                 x2={ x(index) }
                 y2={ 20 }
                 stroke={ stroke }
             />
-            <Circle
+            <Svg.Circle
                 cx={ x(index) }
                 cy={ y(value) }
                 r={ 4 }
@@ -20,8 +20,8 @@ const Tooltip = ({ x, y, value, index, height, text, stroke, pointStroke }) => {
                 strokeWidth={ 2 }
                 fill={ 'white' }
             />
-            <G x={ x(index) < 40 ? 40 : x(index) } y={ 10 }>
-                <Rect
+            <Svg.G x={ x(index) < 40 ? 40 : x(index) } y={ 10 }>
+                <Svg.Rect
                     x={ -40 }
                     y={ 1 }
                     width={ 80 }
@@ -30,7 +30,7 @@ const Tooltip = ({ x, y, value, index, height, text, stroke, pointStroke }) => {
                     rx={ 2 }
                     ry={ 2 }
                 />
-                <Rect
+                <Svg.Rect
                     x={ -40 }
                     y={ 0 }
                     width={ 80 }
@@ -39,14 +39,14 @@ const Tooltip = ({ x, y, value, index, height, text, stroke, pointStroke }) => {
                     rx={ 2 }
                     ry={ 2 }
                 />
-                <Text
+                <Svg.Text
                     fontSize="12"
                     textAnchor="middle"
                 >
                     { text }
-                </Text>
-            </G>
-        </G>
+                </Svg.Text>
+            </Svg.G>
+        </Svg.G>
     )
 }
 

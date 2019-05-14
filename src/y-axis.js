@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Text, View } from 'react-native'
-import { Svg, Text as SVGText } from 'react-native-svg'
+import { Svg } from 'expo'
 import * as d3Scale from 'd3-scale'
 import * as array from 'd3-array'
 
@@ -120,7 +120,7 @@ class YAxis extends PureComponent {
                                 height > 0 &&
                                 ticks.map((value, index) => {
                                     return (
-                                        <SVGText
+                                        <Svg.Text
                                             originY={ y(value) }
                                             textAnchor={ 'middle' }
                                             x={ '50%' }
@@ -130,7 +130,7 @@ class YAxis extends PureComponent {
                                             y={ y(value) }
                                         >
                                             {formatLabel(value, index)}
-                                        </SVGText>
+                                        </Svg.Text>
                                     )
                                 })
                             }

@@ -4,7 +4,7 @@ import * as scale from 'd3-scale'
 import * as shape from 'd3-shape'
 import React, { PureComponent } from 'react'
 import { View } from 'react-native'
-import { Svg } from 'react-native-svg'
+import { Svg } from 'expo'
 import Path from './animated-path'
 
 class AreaStack extends PureComponent {
