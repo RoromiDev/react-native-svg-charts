@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, G } from 'react-native-svg'
+import { Svg } from 'expo'
 import { PieChart } from 'react-native-svg-charts'
 
 class PieChartWithCenterTextExample extends React.PureComponent {
@@ -7,21 +7,21 @@ class PieChartWithCenterTextExample extends React.PureComponent {
     render() {
 
         const TextGroup = () => (
-            <G key="title">
-                <Text
+            <Svg.G key="title">
+                <Svg.Text
                     textAnchor="middle"
                     alignmentBaseline="text-bottom"
                     fontSize="20"
                     fontWeight="bold">
                     Title
-                </Text>
-                <Text
+                </Svg.Text>
+                <Svg.Text
                     key="subtitle"
                     textAnchor="middle"
                     alignmentBaseline="text-top">
                     Subtitle
-                </Text>
-            </G>
+                </Svg.Text>
+            </Svg.G>
         )
 
         const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]

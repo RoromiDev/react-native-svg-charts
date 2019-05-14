@@ -1,5 +1,5 @@
 import React from 'react'
-import { ClipPath, Defs, Rect } from 'react-native-svg'
+import { Svg } from 'expo'
 import { LineChart, Path } from 'react-native-svg-charts'
 
 class PartialLineChartExample extends React.PureComponent {
@@ -11,14 +11,14 @@ class PartialLineChartExample extends React.PureComponent {
         const indexToClipFrom = 10
 
         const Clips = ({ x, width }) => (
-            <Defs key={ 'clips' }>
-                <ClipPath id="clip-path-1">
-                    <Rect x={ '0' } y={ '0' } width={ x(indexToClipFrom) } height={ '100%' }/>
-                </ClipPath>
-                <ClipPath id={ 'clip-path-2' }>
-                    <Rect x={ x(indexToClipFrom) } y={ '0' } width={ width - x(indexToClipFrom) } height={ '100%' }/>
-                </ClipPath>
-            </Defs>
+            <Svg.efs key={ 'clips' }>
+                <Svg.ClipPath id="clip-path-1">
+                    <Svg.Rect x={ '0' } y={ '0' } width={ x(indexToClipFrom) } height={ '100%' }/>
+                </Svg.ClipPath>
+                <Svg.ClipPath id={ 'clip-path-2' }>
+                    <Svg.Rect x={ x(indexToClipFrom) } y={ '0' } width={ width - x(indexToClipFrom) } height={ '100%' }/>
+                </Svg.ClipPath>
+            </Svg.Defs>
         )
 
         // Line extras:

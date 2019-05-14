@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, G } from 'react-native-svg'
+import { Svg } from 'expo'
 import { ProgressCircle } from 'react-native-svg-charts'
 
 class ProgressCircleWithCenterTextExample extends React.PureComponent {
@@ -7,21 +7,21 @@ class ProgressCircleWithCenterTextExample extends React.PureComponent {
     render() {
 
         const TextGroup = () => (
-            <G key="title">
-                <Text
+            <Svg.G key="title">
+                <Svg.Text
                     textAnchor="middle"
                     alignmentBaseline="text-bottom"
                     fontSize="20"
                     fontWeight="bold">
                     Title
-                </Text>
-                <Text
+                </Svg.Text>
+                <Svg.Text
                     key="subtitle"
                     textAnchor="middle"
                     alignmentBaseline="text-top">
                     Subtitle
-                </Text>
-            </G>
+                </Svg.Text>
+            </Svg.G>
         )
 
         return (

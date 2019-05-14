@@ -1,5 +1,5 @@
 import React from 'react'
-import { ClipPath, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
+import { Svg } from 'expo'
 import { AreaChart, Path } from 'react-native-svg-charts'
 
 class PartialAreaChartExample extends React.PureComponent {
@@ -9,23 +9,23 @@ class PartialAreaChartExample extends React.PureComponent {
         const indexToClipFrom = 10
 
         const Gradient = () => (
-            <Defs key={ 'defs' }>
-                <LinearGradient id={ 'gradient' } x1={ '0%' } y={ '0%' } x2={ '0%' } y2={ '100%' }>
-                    <Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' } stopOpacity={ 0.8 }/>
-                    <Stop offset={ '100%' } stopColor={ 'rgb(134, 65, 244)' } stopOpacity={ 0.2 }/>
-                </LinearGradient>
-            </Defs>
+            <Svg.Defs key={ 'defs' }>
+                <Svg.LinearGradient id={ 'gradient' } x1={ '0%' } y={ '0%' } x2={ '0%' } y2={ '100%' }>
+                    <Svg.Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' } stopOpacity={ 0.8 }/>
+                    <Svg.Stop offset={ '100%' } stopColor={ 'rgb(134, 65, 244)' } stopOpacity={ 0.2 }/>
+                </Svg.LinearGradient>
+            </Svg.Defs>
         )
 
         const Clips = ({ x, width }) => (
-            <Defs key={ 'clips' }>
-                <ClipPath id={ 'clip-path-1' } key={ '0' }>
-                    <Rect x={ 0 } y={ '0' } width={ x(indexToClipFrom) } height={ '100%' }/>
-                </ClipPath>
-                <ClipPath id="clip-path-2" key={ '1' }>
-                    <Rect x={ x(indexToClipFrom) } y={ '0' } width={ width - x(indexToClipFrom) } height={ '100%' }/>
-                </ClipPath>
-            </Defs>
+            <Svg.Defs key={ 'clips' }>
+                <Svg.ClipPath id={ 'clip-path-1' } key={ '0' }>
+                    <Svg.Rect x={ 0 } y={ '0' } width={ x(indexToClipFrom) } height={ '100%' }/>
+                </Svg.ClipPath>
+                <Svg.ClipPath id="clip-path-2" key={ '1' }>
+                    <Svg.Rect x={ x(indexToClipFrom) } y={ '0' } width={ width - x(indexToClipFrom) } height={ '100%' }/>
+                </Svg.ClipPath>
+            </Svg.Defs>
         )
 
         const Line = ({ line }) => (

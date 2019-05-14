@@ -1,6 +1,6 @@
 import React from 'react'
 import { StackedAreaChart, Grid } from 'react-native-svg-charts'
-import { Defs, Stop, LinearGradient } from 'react-native-svg'
+import { Svg } from 'expo'
 import * as shape from 'd3-shape'
 
 class AreaStackChartExample extends React.PureComponent {
@@ -39,12 +39,12 @@ class AreaStackChartExample extends React.PureComponent {
         ]
 
         const Gradient = ({ index }) => (
-            <Defs key={ index }>
-                <LinearGradient id={ 'gradient' } x1={ '0%' } y={ '0%' } x2={ '100%' } y2={ '0%' }>
-                    <Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' }/>
-                    <Stop offset={ '100%' } stopColor={ '#eeccff' }/>
-                </LinearGradient>
-            </Defs>
+            <Svg.Defs key={ index }>
+                <Svg.LinearGradient id={ 'gradient' } x1={ '0%' } y={ '0%' } x2={ '100%' } y2={ '0%' }>
+                    <Svg.Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' }/>
+                    <Svg.Stop offset={ '100%' } stopColor={ '#eeccff' }/>
+                </Svg.LinearGradient>
+            </Svg.Defs>
         )
 
         const colors = [ '#8800cc', '#aa00ff', '#cc66ff', '#eeccff' ]

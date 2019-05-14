@@ -1,7 +1,7 @@
 import React from 'react'
 import { LineChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
-import { Circle, G, Line, Rect, Text } from 'react-native-svg'
+import { Svg } from 'expo'
 
 class ExtrasExample extends React.PureComponent {
 
@@ -14,7 +14,7 @@ class ExtrasExample extends React.PureComponent {
          */
 
         const HorizontalLine = (({ y }) => (
-            <Line
+            <Svg.Line
                 key={ 'zero-axis' }
                 x1={ '0%' }
                 x2={ '100%' }
@@ -27,13 +27,13 @@ class ExtrasExample extends React.PureComponent {
         ))
 
         const Tooltip = ({ x, y }) => (
-            <G
+            <Svg.G
                 x={ x(5) - (75 / 2) }
                 key={ 'tooltip' }
                 onPress={ () => console.log('tooltip clicked') }
             >
-                <G y={ 50 }>
-                    <Rect
+                <Svg.G y={ 50 }>
+                    <Svg.Rect
                         height={ 40 }
                         width={ 75 }
                         stroke={ 'grey' }
@@ -41,7 +41,7 @@ class ExtrasExample extends React.PureComponent {
                         ry={ 10 }
                         rx={ 10 }
                     />
-                    <Text
+                    <Svg.Text
                         x={ 75 / 2 }
                         dy={ 20 }
                         alignmentBaseline={ 'middle' }
@@ -49,24 +49,24 @@ class ExtrasExample extends React.PureComponent {
                         stroke={ 'rgb(134, 65, 244)' }
                     >
                         { `${data[5]}ºC` }
-                    </Text>
-                </G>
-                <G x={ 75 / 2 }>
-                    <Line
+                    </Svg.Text>
+                </Svg.G>
+                <Svg.G x={ 75 / 2 }>
+                    <Svg.Line
                         y1={ 50 + 40 }
                         y2={ y(data[ 5 ]) }
                         stroke={ 'grey' }
                         strokeWidth={ 2 }
                     />
-                    <Circle
+                    <Svg.Circle
                         cy={ y(data[ 5 ]) }
                         r={ 6 }
                         stroke={ 'rgb(134, 65, 244)' }
                         strokeWidth={ 2 }
                         fill={ 'white' }
                     />
-                </G>
-            </G>
+                </Svg.G>
+            </Svg.G>
         )
 
         return (

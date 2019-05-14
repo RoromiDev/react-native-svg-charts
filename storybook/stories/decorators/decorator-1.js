@@ -1,6 +1,6 @@
 import React from 'react'
 import { AreaChart, Grid } from 'react-native-svg-charts'
-import { Circle, Path } from 'react-native-svg'
+import { Svg } from 'expo'
 
 class DecoratorExample extends React.PureComponent {
 
@@ -10,7 +10,7 @@ class DecoratorExample extends React.PureComponent {
 
         const Decorator = ({ x, y, data }) => {
             return data.map((value, index) => (
-                <Circle
+                <Svg.Circle
                     key={ index }
                     cx={ x(index) }
                     cy={ y(value) }
@@ -22,7 +22,7 @@ class DecoratorExample extends React.PureComponent {
         }
 
         const Line = ({ line }) => (
-            <Path
+            <Svg.Path
                 d={ line }
                 stroke={ 'rgba(134, 65, 244)' }
                 fill={ 'none' }

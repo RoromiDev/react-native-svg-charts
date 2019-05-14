@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import { BarChart, Grid, YAxis } from 'react-native-svg-charts'
-import { Defs, LinearGradient, Stop, Text } from 'react-native-svg'
+import { Svg } from 'expo'
 import * as scale from 'd3-scale'
 
 class BarChartExample extends React.PureComponent {
@@ -47,18 +47,18 @@ class BarChartExample extends React.PureComponent {
         ]
 
         const Gradient = () => (
-            <Defs key={ 'gradient' }>
-                <LinearGradient id={ 'gradient' } x1={ '0' } y={ '0%' } x2={ '100%' } y2={ '0%' }>
-                    <Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' }/>
-                    <Stop offset={ '100%' } stopColor={ 'rgb(66, 194, 244)' }/>
-                </LinearGradient>
-            </Defs>
+            <Svg.Defs key={ 'gradient' }>
+                <Svg.LinearGradient id={ 'gradient' } x1={ '0' } y={ '0%' } x2={ '100%' } y2={ '0%' }>
+                    <Svg.Stop offset={ '0%' } stopColor={ 'rgb(134, 65, 244)' }/>
+                    <Svg.Stop offset={ '100%' } stopColor={ 'rgb(66, 194, 244)' }/>
+                </Svg.LinearGradient>
+            </Svg.Defs>
         )
 
         const CUT_OFF = 50
         const Labels = ({  x, y, bandwidth, data }) => (
             data.map((item, index) => (
-                <Text
+                <Svg.Text
                     key={ item.label }
                     x={ item.value > CUT_OFF ? x(0) + 10 : x(item.value) + 10 }
                     y={ y(index) + (bandwidth / 2) }
@@ -67,7 +67,7 @@ class BarChartExample extends React.PureComponent {
                     alignmentBaseline={ 'middle' }
                 >
                     {item.label}
-                </Text>
+                </Svg.Text>
             ))
         )
 

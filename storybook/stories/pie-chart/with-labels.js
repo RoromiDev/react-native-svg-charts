@@ -1,6 +1,6 @@
 import React from 'react'
 import { PieChart } from 'react-native-svg-charts'
-import { Circle, G, Line } from 'react-native-svg'
+import { Svg } from 'expo'
 
 class PieChartWithLabelExample extends React.PureComponent {
 
@@ -22,21 +22,21 @@ class PieChartWithLabelExample extends React.PureComponent {
             return slices.map((slice, index) => {
                 const { labelCentroid, pieCentroid, data } = slice
                 return (
-                    <G key={ index }>
-                        <Line
+                    <Svg.G key={ index }>
+                        <Svg.Line
                             x1={ labelCentroid[ 0 ] }
                             y1={ labelCentroid[ 1 ] }
                             x2={ pieCentroid[ 0 ] }
                             y2={ pieCentroid[ 1 ] }
                             stroke={ data.svg.fill }
                         />
-                        <Circle
+                        <Svg.Circle
                             cx={ labelCentroid[ 0 ] }
                             cy={ labelCentroid[ 1 ] }
                             r={ 15 }
                             fill={ data.svg.fill }
                         />
-                    </G>
+                    </Svg.G>
                 )
             })
         }
