@@ -11,7 +11,7 @@ class PartialLineChartExample extends React.PureComponent {
         const indexToClipFrom = 10
 
         const Clips = ({ x, width }) => (
-            <Svg.efs key={ 'clips' }>
+            <Svg.Defs key={ 'clips' }>
                 <Svg.ClipPath id="clip-path-1">
                     <Svg.Rect x={ '0' } y={ '0' } width={ x(indexToClipFrom) } height={ '100%' }/>
                 </Svg.ClipPath>

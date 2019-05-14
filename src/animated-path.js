@@ -81,7 +81,7 @@ AnimatedPath.propTypes = {
     animate: PropTypes.bool,
     animationDuration: PropTypes.number,
     renderPlaceholder: PropTypes.func,
-    ...Path.propTypes,
+    ...Svg.Path.propTypes,
 }
 
 AnimatedPath.defaultProps = {
